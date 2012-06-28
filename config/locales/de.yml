@@ -1,0 +1,54 @@
+de:
+ activerecord:
+  models:
+   user: Benutzer
+   customer: Kunde
+   delivery: Anlieferung
+   deliver_reference: Anlieferreferenz
+  attributes:
+   user:
+    login: Login
+    email: E-mail
+    login_or_email: Benutzer
+    password: Passwort
+ helpers:
+  submit:
+   user:
+    create: Weiter
+   sticker:
+    create: Weiter
+   commission:
+    create: Kommission erstellen
+    update: Kommission aktualisieren
+   delivery:
+    create: Anlieferung speichern
+    update: Anlieferung aktualisieren
+   booking:
+    create: Traversenbuchung abschließen
+    update: Traversenbuchung aktualisieren
+ deliveries:
+  created: Anlieferung wurde angelegt
+  updated: Anlieferung wurde aktualisiert
+  index:
+   new: Neue Anlieferung anlegen
+  show:
+   new: Weitere Anlieferung anlegen
+   edit: Anlieferung bearbeiten
+  created_delivery: Anlieferung wurde erfolgreich angelegt
+ commissions:
+  index:
+   new: Neuen Auftrag anlegen
+  show:
+   new: Weiteren Auftrag anlegen
+   edit: Auftrag bearbeiten
+  created_commission: Auftrag wurde erfolgreich angelegt
+ views:
+  pagination:
+   first: "<<"
+   last: ">>"
+   next: ">"
+   previous: "<"
+   truncate: "..."
+ stickers:
+    unique_number: VID bzw. Auftragsnummer
+

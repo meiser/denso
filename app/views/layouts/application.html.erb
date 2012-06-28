@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Denso</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<ul class="menu">
+<% if current_user %>
+  <li><%= link_to "#{current_user.login} abmelden", sessions_path, :method => :delete, :class => "ym-button ym-delete" %></li>
+<% end %>
+</ul>
+</body>
+</html>
+
