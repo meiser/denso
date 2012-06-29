@@ -6,3 +6,7 @@
 <li><%= link_to "Manuell", new_sticker_path(:type =>"manual") %></li>
 </ul>
 
+<% content_for :navigation do %>
+ <li><%= link_to "Zurück", root_path %></li>
+<% end %>
+

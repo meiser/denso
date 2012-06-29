@@ -26,6 +26,10 @@ gem 'net-sftp'
 
 gem 'meiser-rails', :path => "/home/neo/Projekte/meiser-rails"
 
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'daemons'
+
 #gem 'extr', :git => "git://github.com/skeller1/extr.git", :branch => "oop"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
