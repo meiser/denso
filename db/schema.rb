@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120629131403) do
+ActiveRecord::Schema.define(:version => 20120720125319) do
+
+  create_table "bundlestickers", :force => true do |t|
+    t.text     "unique_number"
+    t.integer  "language_id"
+    t.boolean  "neutral"
+    t.boolean  "ce"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -33,6 +42,18 @@ ActiveRecord::Schema.define(:version => 20120629131403) do
     t.string   "code"
     t.text     "description"
     t.integer  "lang"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "orderstickers", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "printers", :force => true do |t|
+    t.string   "ident"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -61,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20120629131403) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.text     "preferences"
+    t.integer  "printer_id"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
   end

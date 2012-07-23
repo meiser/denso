@@ -1,6 +1,10 @@
 Denso::Application.routes.draw do
 
 
+  resources :orderstickers
+
+  resources :bundlestickers
+
   resources :languages
 
   root :to => "application#start"

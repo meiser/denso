@@ -1,20 +1,6 @@
-
 begin
-  unless Language.first
-  Rails.logger.info "Erstmalige Beladung der Datenbank mit allen angelegten Sprachen aus Baan"
-  Language.foreach_baan("select * from ttcmcs046110") do |l|
-   Language.create(
-    :code => l["t_clan"].strip,
-    :description => l["t_dsca"].strip,
-    :lang => l["t_lang"].strip
-   )
-  end
-
-  Rails.logger.info "Erstbeladung mit Sprachen aus BAAN erfolgreich abgeschlossen"
- else
-   Rails.logger.info "Druckerinitialisierung mit BAAN nicht notwendig"
- end
-
+ Language.synchronize_with_baan
+ Printer.synchronize_with_baan
 rescue Exception => e
  Rails.logger.error e.message
  p e.message

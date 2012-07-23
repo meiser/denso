@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :password, :login_or_email
 
+
+  belongs_to :printer
+
   serialize :preferences, OpenStruct
 
 

@@ -17,6 +17,8 @@ de:
     create: Weiter
    sticker:
     create: Weiter
+   bundlesticker:
+    create: Weiter
    commission:
     create: Kommission erstellen
     update: Kommission aktualisieren
@@ -51,4 +53,9 @@ de:
    truncate: "..."
  stickers:
     unique_number: VID bzw. Auftragsnummer
+ bundlestickers:
+    language: Sprache
+    neutral: neutral(J/N)
+    ce: CE-Zeichen(J/N)
+    unique_number: Verzinkungs-ID
 

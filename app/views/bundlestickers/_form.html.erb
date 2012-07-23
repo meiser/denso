@@ -1,0 +1,33 @@
+<%= form_for(@bundlesticker) do |f| %>
+<div>
+  <%= f.label :language, t("bundlestickers.language") %></br>
+  <%= f.collection_select(:language_id, Language.all,:id, :description, :selected => 1) %>
+</div>
+<div>
+  <%= f.label :neutral, t("bundlestickers.neutral") %></br>
+  <%= f.select :neutral , {"Ja" => true, "Nein" => false}, :selected => false %>
+  <%#= f.check_box :neutral %>
+</div>
+<div>
+  <%= f.label :ce, t("bundlestickers.ce") %></br>
+  <%= f.select :ce, {"Ja" => true, "Nein" => false}, :selected => false %>
+  <%#= f.check_box :ce %>
+<div>
+  <%= f.label :unique_number, t("bundlestickers.unique_number") %></br>
+  <%= f.text_field :unique_number %>
+</div>
+
+
+<%= f.submit %>
+<ul class="menu">
+  <li><%= link_to "Zurück", stickers_path %></li>
+</ul>
+<% end %>
+
+
+<% content_for :javascript do %>
+ window.onload = function(){
+  document.getElementById('bundlesticker_unique_number').focus()
+ };
+<% end %>
+

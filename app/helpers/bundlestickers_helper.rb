@@ -1,0 +1,2 @@
+module BundlestickersHelper
+end

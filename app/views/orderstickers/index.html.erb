@@ -1,0 +1,21 @@
+<h1>Listing orderstickers</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orderstickers.each do |ordersticker| %>
+  <tr>
+    <td><%= link_to 'Show', ordersticker %></td>
+    <td><%= link_to 'Edit', edit_ordersticker_path(ordersticker) %></td>
+    <td><%= link_to 'Destroy', ordersticker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ordersticker', new_ordersticker_path %>

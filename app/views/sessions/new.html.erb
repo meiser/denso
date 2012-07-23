@@ -1,7 +1,5 @@
 <h1>Anmeldung</h1>
 
-<%= flash[:error] %>
-
 <%= form_for(@user, :url => sessions_path) do |f| %>
 <div>
   <%= f.label :login_or_email %></br>

@@ -7,35 +7,52 @@ class StickersController < ApplicationController
   def new
    @sticker = Sticker.new
    @headline = case params[:type]
-    when "order" then "Auftragsware"
-    when "stock" then "Lagerware"
+    when "bundle" then "durch Bundetikett"
     when "manual" then "manuell"
     else
-      render :text => "Error"
+      render :action => :index
    end.prepend("Etikettierung ")
   end
 
-  def create
-   #003100010378  1
-   if params[:type] = "order"
-    p params[:sticker][:unique_number]
-    Sticker.foreach_baan("select * from twhmei001120", ["003100010378  12"] ) do |b|
-     p b
-    end
-   end
-   file_name = SecureRandom.hex(10)
-   p file_path= Rails.root.join("public","#{file_name}.ctg")
-   p remote_file_path = "/erpdat/baan_ils/etikett/120/#{file_name}.ctg"
-   #Net::SCP.upload!("BaanEcht", "kellers", Rails.root.join("public","110618313.ctg"), "/erpdat/baan_ils/etikett/120/110618313.ctg", :password => "kellers")
 
+  def bundle
 
-
-   #Net::SFTP.start('BaanEcht', 'samba', :password => "samba12") do |sftp|
-   # sftp.upload!(file_path.to_s,remote_file_path)
-   #end
-   redirect_to :action => :index
   end
 
+  def manual
+
+  end
+
+
+  def create
+
+   #Testlieferung 003100010378  1
+   if params[:type] == "bundle"
+    verz_id = params[:sticker][:unique_number].scan(/^.{3}(.*)(.{3})/).flatten
+     job = JobABundle.new(current_user.printer.ident, verz_id)
+     if job.valid?
+      Delayed::Job.enqueue job
+      flash[:notice] = "Gedruckt"
+     else
+      flash[:error] = "Angaben checken"
+     end
+   end
+=begin
+   case params[:type]
+    when "order" then
+     verz_id = params[:sticker][:unique_number].scan(/^.{3}(.*)(.{3})/).flatten
+     job = JobAuftragsware.new(current_user.printer.ident, verz_id)
+     if job.valid?
+      p "JOB valid"
+      Delayed::Job.enqueue job
+      #redirect_to :action => :new, :type => params[:type]
+     end
+    else
+     p "TODO Implement other types"
+   end
+=end
+
+  end
 
 
 end

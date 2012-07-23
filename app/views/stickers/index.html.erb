@@ -1,9 +1,12 @@
 <h1>Etikettierung</h1>
 
 <ul class="menu">
-<li><%= link_to "Auftragsware", new_sticker_path(:type =>"order") %></li>
+  <li><%= link_to "durch Bundetikett", new_bundlesticker_path %></li>
+  <li><%= link_to "durch Auftrag/Position", new_ordersticker_path %></li>
+  <li><%= link_to "Lagerware", "#" %></li>
+<!--<li><%= link_to "Auftragsware", new_sticker_path(:type =>"order") %></li>
 <li><%= link_to "Lagerware", new_sticker_path(:type =>"stock") %></li>
-<li><%= link_to "Manuell", new_sticker_path(:type =>"manual") %></li>
+<li><%= link_to "Manuell", new_sticker_path(:type =>"manual") %></li>-->
 </ul>
 
 <% content_for :navigation do %>

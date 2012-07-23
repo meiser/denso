@@ -1,0 +1,17 @@
+<%= form_for(@ordersticker) do |f| %>
+  <% if @ordersticker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ordersticker.errors.count, "error") %> prohibited this ordersticker from being saved:</h2>
+
+      <ul>
+      <% @ordersticker.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

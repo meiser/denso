@@ -29,8 +29,6 @@ class SessionsController < ApplicationController
     else
       flash[:error] = t(".invalid", :scope => :authentification)
       @dialog = true
-      p "skeller########################################"
-      p params
       redirect_to :action => :new
     end
   end

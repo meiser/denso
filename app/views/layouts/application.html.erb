@@ -4,17 +4,25 @@
   <title>Denso</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_tag do %>
+   <%= yield :javascript %>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+ <%= flash[:notice] if flash[:notice] %>
+ <%= flash[:error] if flash[:error] %>
 
-<%= yield %>
-<ul class="menu">
-<%= yield :navigation %>
-<% if current_user %>
-  <li><%= link_to "#{current_user.login} abmelden", sessions_path, :method => :delete, :class => "ym-button ym-delete" %></li>
-<% end %>
-</ul>
+ <%= yield %>
+ <ul class="menu">
+  <%= yield :navigation %>
+  <% if current_user %>
+   <li><%= link_to "#{current_user.login} abmelden", sessions_path, :method => :delete, :class => "ym-button ym-delete" %></li>
+  <% end %>
+ </ul>
+ <% if current_user %>
+  <p>Us: <%= current_user.login %> Dr: <%= current_user.try(:printer).description %></p>
+ <% end %>
 </body>
 </html>
 

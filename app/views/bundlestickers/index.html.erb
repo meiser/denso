@@ -1,0 +1,21 @@
+<h1>Listing bundlestickers</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bundlestickers.each do |bundlesticker| %>
+  <tr>
+    <td><%= link_to 'Show', bundlesticker %></td>
+    <td><%= link_to 'Edit', edit_bundlesticker_path(bundlesticker) %></td>
+    <td><%= link_to 'Destroy', bundlesticker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bundlesticker', new_bundlesticker_path %>

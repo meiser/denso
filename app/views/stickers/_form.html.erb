@@ -1,17 +1,21 @@
 <%= flash[:error] %>
+<%= flash[:notice] %>
 
 <%= form_for(@sticker, :url => stickers_path) do |f| %>
 <div>
   <%= f.label :unique_number, t("stickers.unique_number") %></br>
   <%= f.text_field :unique_number %>
 </div>
-<div>
-  <%#= f.label :password %></br>
-  <%#= f.password_field :password %>
-</div>
 <%= f.submit %>
 <ul class="menu">
   <li><%= link_to "Zurück", stickers_path %></li>
 </ul>
+<% end %>
+
+
+<% content_for :javascript do %>
+ window.onload = function(){
+  document.getElementById('sticker_unique_number').focus()
+ };
 <% end %>
 
