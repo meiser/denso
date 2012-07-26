@@ -10,9 +10,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
- <%= flash[:notice] if flash[:notice] %>
- <%= flash[:error] if flash[:error] %>
-
+ <% if flash[:notice] %>
+  <h1 style="background-color:green;"><%= flash[:notice] %></h1>
+ <% end %>
+ <% if flash[:error] %>
+  <h1 style="background-color:red;"><%= flash[:error] %></h1>
+ <% end %>
  <%= yield %>
  <ul class="menu">
   <%= yield :navigation %>

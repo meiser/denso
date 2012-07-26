@@ -40,11 +40,11 @@ class BundlestickersController < ApplicationController
   # POST /bundlestickers
   # POST /bundlestickers.json
   def create
-   p @sticker = Bundlesticker.new(params[:bundlesticker])
+   p @bundlesticker = Bundlesticker.new(params[:bundlesticker])
 
-   if @sticker.valid?
-    @sticker.save
-    job = JobBundle.new(current_user.printer.ident, @sticker)
+   if @bundlesticker.valid?
+    @bundlesticker.save
+    job = JobBundle.new(current_user.printer.ident, @bundlesticker)
     Delayed::Job.enqueue job
     flash[:notice] = "#{params[:bundlesticker][:unique_number]} wird gedruckt"
    else

@@ -2,10 +2,12 @@ class JobBundle < Struct.new(:printer,:sticker)
 
   def perform
    @output = []
+   p sticker.verz_id
    Baan.foreach_baan("select ttibde914120.t_cprj, ttdsls401120.t_pono, ttdsls401120.t_corn, ttdsls401120.t_corp, ttibde914120 .t_dqua, ttcibd001120.t_dsca, ttcibd001120.t_dscb, ttcibd001120.t_dscc from ttibde914120 inner join ttdsls401120 on ttibde914120.t_mitm = ttdsls401120.t_item inner join ttcibd001120 on ttcibd001120.t_item = ttdsls401120.t_item where t_load=? AND t_bund=?", sticker.verz_id) do |e|
     @output << e
    end
 
+   p @output
    #etikett = "Rostetikett Zebra V2.btw"
 
    etikett= case sticker.language.code
@@ -20,7 +22,7 @@ class JobBundle < Struct.new(:printer,:sticker)
 
    file_name = SecureRandom.hex(10)
    local_file_dir = Rails.root.join("public","etiketten")
-   local_file =  local_file_dir.join("#{file_name}.ctg").to_s
+   local_file =  local_file_dir.join("#{file_name}.ctg")
    remote_file = "/erpdat/baan_ils/etikett/120/#{file_name}.ctg"
    FileUtils.mkpath(local_file_dir)
 
@@ -41,7 +43,7 @@ class JobBundle < Struct.new(:printer,:sticker)
 
 
    Net::SFTP.start('BaanEcht', 'samba', :password => "samba12") do |sftp|
-    sftp.upload!(local_file,remote_file)
+    sftp.upload!(local_file.to_s,remote_file.to_s)
    end
 
   end
