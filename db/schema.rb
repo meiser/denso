@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720125319) do
+ActiveRecord::Schema.define(:version => 20120727114909) do
+
+  create_table "bundle_types", :force => true do |t|
+    t.integer  "cnst"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "bundlestickers", :force => true do |t|
     t.text     "unique_number"
@@ -20,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20120720125319) do
     t.boolean  "ce"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "commissions", :force => true do |t|
+    t.integer  "bundle_type"
+    t.decimal  "length"
+    t.decimal  "width"
+    t.decimal  "height"
+    t.decimal  "weight"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|

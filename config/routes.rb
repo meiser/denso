@@ -1,6 +1,8 @@
 Denso::Application.routes.draw do
 
 
+  resources :commissions
+
   resources :orderstickers
 
   resources :bundlestickers

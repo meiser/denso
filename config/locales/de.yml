@@ -6,6 +6,12 @@ de:
    delivery: Anlieferung
    deliver_reference: Anlieferreferenz
   attributes:
+   commission:
+    bundle_type: Packstücktyp
+    length: Länge
+    width: Breite
+    height: Höhe
+    weight: Gewicht
    user:
     login: Login
     email: E-mail

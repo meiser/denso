@@ -1,18 +1,5 @@
 <h1>Hauptmenü</h1>
-<!--
-
-<ul class="menu">
-
-<li><%= link_to "Etikettierung", stickers_path %></li>
-<li><%= link_to "Kommissionierung" %></li>
-<li><%= link_to "Korrektur" %></li>
-</ul>
-
-
-
-<button type='button' style="width:100%;padding: 10%;">My Button</button>
--->
 <%= link_to "Etikettierung", stickers_path, :class => "button" %>
-<%= link_to "Kommissionierung", "#", :class => "button" %>
+<%= link_to "Kommissionierung", commissions_path, :class => "button" %>
 <%= link_to "Korrektur", "#", :class => "button" %>
 

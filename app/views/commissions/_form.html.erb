@@ -1,0 +1,35 @@
+<%= form_for(@commission) do |f| %>
+<div>
+  <%= f.label :bundle_type %></br>
+  <%= f.collection_select(:bundle_type, @bundle_types, :cnst, :description, :selected => 1) %>
+</div>
+
+<div>
+  <%= f.label :length %></br>
+  <%= f.text_field :length %>
+</div>
+
+<div>
+  <%= f.label :width %></br>
+  <%= f.text_field :width %>
+</div>
+
+<div>
+  <%= f.label :height %></br>
+  <%= f.text_field :height %>
+</div>
+
+<div>
+  <%= f.label :weight %></br>
+  <%= f.text_field :weight %>
+</div>
+
+<div>
+<%= f.submit %>
+</div>
+<% end %>
+
+<% content_for :navigation do %>
+ <%= link_to "Zurück", commissions_path, :class => "button" %>
+<% end %>
+
