@@ -32,3 +32,38 @@ ul.menu li a{
 
 }
 
+.back {
+    margin-top: 10%;
+}
+
+.button {
+    text-decoration:none;
+    display: block;
+    width: 99%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align:center;
+    vertical-align:middle;
+    border: 0px solid black;
+    background-color: lightgrey;
+    margin-bottom: 2px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.button:active {
+    border: 1px solid black;
+    background-color: #043A67;
+    color: #000000;
+}
+
+.button:hover {
+    color: #000000;
+    background-color: #043A67;
+}
+
+.button:visited {
+    color: black;
+    background-color: lightgrey;
+}
+

@@ -16,13 +16,11 @@
  <% if flash[:error] %>
   <h1 style="background-color:red;"><%= flash[:error] %></h1>
  <% end %>
- <%= yield %>
- <ul class="menu">
+  <%= yield %>
   <%= yield :navigation %>
   <% if current_user %>
-   <li><%= link_to "#{current_user.login} abmelden", sessions_path, :method => :delete, :class => "ym-button ym-delete" %></li>
+   <%= link_to "#{current_user.login} abmelden", sessions_path, :method => :delete, :class => "button back" %>
   <% end %>
- </ul>
  <% if current_user %>
   <p>Us: <%= current_user.login %> Dr: <%= current_user.try(:printer).description %></p>
  <% end %>
