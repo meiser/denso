@@ -25,7 +25,7 @@ class BundlestickersController < ApplicationController
   # GET /bundlestickers/new.json
   def new
     @bundlesticker = Bundlesticker.new
-    @headline = "durch Bund".prepend("Etik. ")
+    @headline = "Auftragsware".prepend("Etik. ")
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @bundlesticker }

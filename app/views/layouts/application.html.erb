@@ -22,7 +22,7 @@
    <%= link_to "#{current_user.login} abmelden", sessions_path, :method => :delete, :class => "button back" %>
   <% end %>
  <% if current_user %>
-  <p>Us: <%= current_user.login %> Dr: <%= current_user.try(:printer).description %></p>
+  <p>Us: <%= current_user.login %> Dr: <%= current_user.try(:printer).try(:description) if current_user.printer %></p>
  <% end %>
 </body>
 </html>

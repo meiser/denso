@@ -46,7 +46,7 @@ class CommissionsController < ApplicationController
    if @commission.valid?
     @commission.save
     #job = JobBundle.new(current_user.printer.ident, @bundlesticker)
-    Delayed::Job.enqueue job
+    #Delayed::Job.enqueue job
     flash[:notice] = "Kommissionierung #{@commission.id} abgeschlossen"
    else
     flash[:error] = "Nicht erfolgreich"
