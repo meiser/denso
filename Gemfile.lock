@@ -1,5 +1,6 @@
-PATH
-  remote: /home/neo/Projekte/meiser-rails
+GIT
+  remote: git://github.com/meiser/meiser-rails.git
+  revision: d8916e77d6645d7806ad0993e717e9d29fc061f8
   specs:
     meiser-rails (0.0.1)
       ibm_db (~> 2.5.10)

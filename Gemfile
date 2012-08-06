@@ -23,7 +23,7 @@ gem 'net-ldap'
 gem 'net-scp'
 gem 'net-sftp'
 
-gem 'meiser-rails', :path => '/home/neo/Projekte/meiser-rails'
+gem 'meiser-rails', :git => "git://github.com/meiser/meiser-rails.git" #:path => '/home/neo/Projekte/meiser-rails'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'daemons'
