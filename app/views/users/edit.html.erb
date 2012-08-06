@@ -1,0 +1,15 @@
+<h1>Einstellungen</h1>
+
+<%= form_for(@user) do |f| %>
+<div>
+  <%= f.label :login_or_email %></br>
+  <%= @user.login %> (<%= @user.email %>)
+</div>
+<div>
+  <%= f.label :printer, t("users.language") %></br>
+  <%= f.collection_select(:printer, Printer.all,:id, :description, :selected => 1) %>
+</div>
+<%= f.submit %>
+
+<% end %>
+

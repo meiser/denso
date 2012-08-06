@@ -1,7 +1,7 @@
 begin
- Language.synchronize_with_baan
- Printer.synchronize_with_baan
- BundleType.synchronize_with_baan
+ #Language.synchronize_with_baan
+ #Printer.synchronize_with_baan
+ #BundleType.synchronize_with_baan
 rescue Exception => e
  Rails.logger.error e.message
  p e.message

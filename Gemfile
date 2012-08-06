@@ -6,7 +6,6 @@ gem 'rails', '3.2.6'
 
 gem 'sqlite3'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -24,13 +23,11 @@ gem 'net-ldap'
 gem 'net-scp'
 gem 'net-sftp'
 
-gem 'meiser-rails', :path => "/home/neo/Projekte/meiser-rails"
-
+gem 'meiser-rails', :path => '/home/neo/Projekte/meiser-rails'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
-#gem 'extr', :git => "git://github.com/skeller1/extr.git", :branch => "oop"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

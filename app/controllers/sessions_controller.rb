@@ -25,7 +25,11 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       path = session[:return_to] || root_path
 
-      redirect_to path, :notice => t(".signed_in", :scope => :authentification)
+      if user.printer
+        redirect_to path, :notice => t(".signed_in", :scope => :authentification)
+      else
+        redirect_to edit_user_path(user)
+      end
     else
       flash[:error] = t(".invalid", :scope => :authentification)
       @dialog = true

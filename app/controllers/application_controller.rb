@@ -19,14 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    if session[:user_id]
-      true
-    else
-      flash[:notice] = "Erst anmelden"
-      session[:return_to] = request.path
-      redirect_to :controller => "sessions", :action => "new"
+    unless session[:user_id]
+     flash[:notice] = "Erst anmelden"
+     session[:return_to] = request.path
+     redirect_to :controller => "sessions", :action => "new"
     end
-
   end
 
 

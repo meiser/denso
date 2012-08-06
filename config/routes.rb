@@ -15,6 +15,8 @@ Denso::Application.routes.draw do
 
   resources :stickers
 
+  resources :users, :only => [:edit,:update]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
